@@ -1,0 +1,37 @@
+
+1. Find the albums recorded by the artist Queen.
+
+
+[2] pry(main)> Artist.where(name: 'Queen')
+  Artist Load (0.6ms)  SELECT "artists".* FROM "artists" WHERE "artists"."name" = $1  [["name", "Queen"]]
+=> [#<Artist:0x007fc9e234b648
+  id: 51,
+  name: "Queen",
+  created_at: Sun, 08 Jan 2006 22:57:01 UTC +00:00,
+  updated_at: Wed, 29 Jan 2014 22:10:22 UTC +00:00>]
+[3] pry(main)> Album.where(artist_id: 51)
+  Album Load (0.7ms)  SELECT "albums".* FROM "albums" WHERE "albums"."artist_id" = $1  [["artist_id", 51]]
+=> [#<Album:0x007fc9e0e182d0
+  id: 36,
+  artist_id: 51,
+  title: "Greatest Hits II",
+  created_at: Wed, 30 Jan 2008 14:00:12 UTC +00:00,
+  updated_at: Wed, 29 Jan 2014 22:14:02 UTC +00:00>,
+ #<Album:0x007fc9e0e18168
+  id: 185,
+  artist_id: 51,
+  title: "Greatest Hits I",
+  created_at: Sat, 29 Dec 2007 12:02:13 UTC +00:00,
+  updated_at: Wed, 29 Jan 2014 22:14:02 UTC +00:00>,
+ #<Album:0x007fc9e0e13fa0
+  id: 186,
+  artist_id: 51,
+  title: "News Of The World",
+  created_at: Wed, 23 Jun 2010 20:50:06 UTC +00:00,
+  updated_at: Wed, 29 Jan 2014 22:14:02 UTC +00:00>]
+
+
+
+______________________________________________________________________________________
+
+2. Count how many tracks belong to the media type "Protected MPEG-4 video file"
