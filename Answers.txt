@@ -61,5 +61,9 @@ ________________________________________________________________________________
 
 ______________________________________________________________________________________
 
+4. Count how many tracks belong to the "Hip Hop/Rap" genre 
 
+[7] pry(main)> Track.where(genre_id: 17).length
+  Track Load (1.8ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."genre_id" = $1  [["genre_id", 17]]
+=> 35
 
