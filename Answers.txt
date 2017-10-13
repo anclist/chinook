@@ -49,4 +49,17 @@ ________________________________________________________________________________
 
 ______________________________________________________________________________________
 
-3. 
+3. Find the genre with the name "Hip Hop/Rap".
+
+[6] pry(main)> Genre.where(name: 'Hip Hop/Rap')
+  Genre Load (1.1ms)  SELECT "genres".* FROM "genres" WHERE "genres"."name" = $1  [["name", "Hip Hop/Rap"]]
+=> [#<Genre:0x007fc9e18d3530
+  id: 17,
+  name: "Hip Hop/Rap",
+  created_at: Sun, 20 Jan 2013 02:04:31 UTC +00:00,
+  updated_at: Wed, 29 Jan 2014 22:14:08 UTC +00:00>]
+
+______________________________________________________________________________________
+
+
+
