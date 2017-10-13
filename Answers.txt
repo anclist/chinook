@@ -35,3 +35,18 @@
 ______________________________________________________________________________________
 
 2. Count how many tracks belong to the media type "Protected MPEG-4 video file"
+
+[4] pry(main)> MediaType.where(name: 'Protected MPEG-4 video file')
+  MediaType Load (0.6ms)  SELECT "media_types".* FROM "media_types" WHERE "media_types"."name" = $1  [["name", "Protected MPEG-4 video file"]]
+=> [#<MediaType:0x007fc9e0d32460
+  id: 3,
+  name: "Protected MPEG-4 video file",
+  created_at: Fri, 07 Dec 2007 13:17:17 UTC +00:00,
+  updated_at: Wed, 29 Jan 2014 22:14:22 UTC +00:00>]
+[5] pry(main)> Track.where(media_type_id: 3).length
+  Track Load (3.9ms)  SELECT "tracks".* FROM "tracks" WHERE "tracks"."media_type_id" = $1  [["media_type_id", 3]]
+=> 214
+
+______________________________________________________________________________________
+
+3. 
