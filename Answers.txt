@@ -475,6 +475,69 @@ ________________________________________________________________________________
   created_at: Thu, 01 May 2008 07:04:10 UTC +00:00,
   updated_at: Wed, 29 Jan 2014 22:14:59 UTC +00:00>]
 
+______________________________________________________________________________________
+
+
+PART 2
+
+1. Find the albums recorded by the artist Queen.
+
+                                                  ^
+chinook_development=# SELECT "artists"."id" FROM "artists" WHERE "name" = 'Queen';
+ id 
+----
+ 51
+(1 row)
+
+chinook_development=# SELECT "albums".* FROM "albums" WHERE "artist_id" = 51;
+ id  | artist_id |       title       |         created_at         |         updated_at         
+-----+-----------+-------------------+----------------------------+----------------------------
+  36 |        51 | Greatest Hits II  | 2008-01-30 14:00:12.455894 | 2014-01-29 22:14:02.456155
+ 185 |        51 | Greatest Hits I   | 2007-12-29 12:02:13.672295 | 2014-01-29 22:14:02.672569
+ 186 |        51 | News Of The World | 2010-06-23 20:50:06.971442 | 2014-01-29 22:14:02.971684
+(3 rows)
+
+
+______________________________________________________________________________________
+
+2. Count how many tracks belong to the media type "Protected MPEG-4 video file".
+
+chinook_development=# SELECT * FROM "media_types" WHERE "name" = 'Protected MPEG-4 video file';
+ id |            name             |         created_at         |         updated_at         
+----+-----------------------------+----------------------------+----------------------------
+  3 | Protected MPEG-4 video file | 2007-12-07 13:17:17.805185 | 2014-01-29 22:14:22.805487
+(1 row)
+
+
+chinook_development=# SELECT COUNT(*) FROM "tracks" WHERE "media_type_id" = 3;
+ count 
+-------
+   214
+(1 row)
+
+______________________________________________________________________________________
+
+3. Find the least expensive track that has the genre "Electronica/Dance".
+
+chinook_development=# SELECT * FROM "tracks" WHERE "genre_id" = 15 ORDER BY "unit_price" LIMIT 1                               ;
+  id  | album_id | genre_id | media_type_id |        name        | composer | milliseconds |  bytes   | unit_price |         created_at         |         updated_at         
+------+----------+----------+---------------+--------------------+----------+--------------+----------+------------+----------------------------+----------------------------
+ 3319 |      259 |       15 |             1 | Instinto Colectivo |          |       300564 | 12024875 |       0.99 | 2004-09-27 22:40:29.778016 | 2014-01-29 22:15:04.377727
+(1 row)
+
+______________________________________________________________________________________
+
+4. Find the all the artists whose names start with A.
+
+
+
+
+______________________________________________________________________________________
+
+5. Find all the tracks that belong to playlist 1.
+
+
+
 
 
 
